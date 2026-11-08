@@ -16,6 +16,7 @@ class AccountingMasterSeeder extends Seeder
 
             // 1. MASTER ACCOUNT GROUPS
             $groups = [
+                ['code' => '1', 'name' => 'Aset'],
                 ['code' => '4', 'name' => 'Pendapatan'],
                 ['code' => '6', 'name' => 'Beban'],
             ];
@@ -29,6 +30,7 @@ class AccountingMasterSeeder extends Seeder
 
             // 2. MASTER KATEGORI COA
             $categories = [
+                ['name' => 'Cash', 'group' => '1'],
                 ['name' => 'Salary', 'group' => '4'],
                 ['name' => 'Other Income', 'group' => '4'],
                 ['name' => 'Family Expense', 'group' => '6'],
@@ -53,12 +55,15 @@ class AccountingMasterSeeder extends Seeder
 
             // 3. MASTER CHART OF ACCOUNT
             $accounts = [
+                ['code' => '101', 'name' => 'Kas', 'category' => 'Cash'],
                 ['code' => '401', 'name' => 'Gaji Karyawan', 'category' => 'Salary'],
                 ['code' => '402', 'name' => 'Gaji Ketua MPR', 'category' => 'Salary'],
                 ['code' => '403', 'name' => 'Profit Trading', 'category' => 'Other Income'],
                 ['code' => '601', 'name' => 'Biaya Sekolah', 'category' => 'Family Expense'],
                 ['code' => '602', 'name' => 'Bensin', 'category' => 'Transport Expense'],
                 ['code' => '603', 'name' => 'Parkir', 'category' => 'Transport Expense'],
+                ['code' => '604', 'name' => 'Biaya Makan', 'category' => 'Meal Expense'],
+
             ];
 
             foreach ($accounts as $account) {

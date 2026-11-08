@@ -26,7 +26,7 @@
                 MENU UTAMA
             </div>
 
-            <a href="{{ Route::has('dashboard') ? route('dashboard') : '#' }}"
+            <a href="{{ route('dashboard') }}"
                class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
 
                 <span class="nav-icon">⌂</span>
@@ -61,8 +61,9 @@
             <div class="nav-label">
                 TRANSAKSI
             </div>
-
-            <a href="#">
+   
+            <a href="{{ route('journals.index') }}"
+            class="{{ request()->routeIs('journals.*') ? 'active' : '' }}">
 
                 <span class="nav-icon">▧</span>
                 Jurnal Umum
@@ -80,21 +81,22 @@
 
             </div>
 
-            <a href="#">
+            {{-- <a href="{{ route('ledger.index') }}"
+            class="{{ request()->routeIs('ledger.*') ? 'active' : '' }}">
 
-                <span class="nav-icon">▥</span>
+                <span class="nav-icon">▧</span>
                 Buku Besar
 
             </a>
 
-            <a href="#">
-
+            <a href="{{ route('neraca-saldo.index') }}"
+            class="{{ request()->routeIs('neraca-saldo.*') ? 'active' : '' }}">
                 <span class="nav-icon">▦</span>
                 Neraca Saldo
+            </a> --}}
 
-            </a>
-
-            <a href="#">
+            <a href="{{ route('reports.index') }}"
+            class="{{ request()->routeIs('reports.*') ? 'active' : '' }}">
 
                 <span class="nav-icon">▧</span>
                 Laporan Keuangan

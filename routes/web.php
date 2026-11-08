@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChartOfAccountController;
 use App\Http\Controllers\AccountGroupController;
 use App\Http\Controllers\CoaCategoryController;
+use App\Http\Controllers\JournalController;
+use App\Http\Controllers\GeneralLedgerController;
+use App\Http\Controllers\NeracaSaldoController;
+use App\Http\Controllers\FinancialReportController;
+use App\Http\Controllers\DashboardController;
 
 
 // ==================================================
@@ -73,10 +78,31 @@ Route::delete('/coa-categories/{coaCategory}', [
 ])->name('coa-categories.destroy');
 
 
+Route::get('/jurnal-umum', [JournalController::class, 'index'])
+    ->name('journals.index');
+
+Route::post('/jurnal-umum', [JournalController::class, 'store'])
+    ->name('journals.store');
+
+Route::delete('/jurnal-umum/{id}', [JournalController::class, 'destroy'])
+    ->name('journals.destroy');
+
+Route::get('/buku-besar', [GeneralLedgerController::class, 'index'])
+    ->name('ledger.index');
+
+Route::get('/neraca-saldo', [NeracaSaldoController::class, 'index'])
+    ->name('neraca-saldo.index');
+
+Route::get('/laporan-keuangan', [FinancialReportController::class, 'index'])
+    ->name('reports.index');
+
+Route::get('/laporan-keuangan/export-excel', [FinancialReportController::class, 'exportExcel'])
+    ->name('reports.export-excel');
+
 // ==================================================
-// HOME
+// HOME & DASHBOARD
 // ==================================================
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
